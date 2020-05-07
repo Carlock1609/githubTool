@@ -1,18 +1,25 @@
 // THIS GETS ME ONE USERS ACCOUNT WITH ALL REPOS IN JSON.
 function getAccount() {
-    const data_list = [];
     // Add user name to change accounts - Figure out how to loop over a list of students
     const url = `https://api.github.com/users/Carlock1609/repos?type=owner`
 
     axios.get(url)
     .then(request => {
-        data_list.push(request.data[12].pushed_at)
+        return request
+    })
+    .then((data) => {
+        return data.data
+    })
+    .then((data) => {
+        for(let repo of data) {
+            console.log(repo)
+        }
     })
     .catch(error => console.log(error))
-    return data_list;
 }
 // This is returning an object
 let get_pushed_data = getAccount();
+console.log(get_pushed_data)
 
 
 // for(let i = 0; i < get_pushed_data.length; i++) {
