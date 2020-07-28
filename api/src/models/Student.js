@@ -10,10 +10,11 @@ const StudentSchema = new mongoose.Schema({
         required: false,
         unique: true
     },
-    commits: {
-        type: Array, 
-        required: true
-    },
+    commits: [{
+        type: String, 
+        required: false,
+        unique: true
+    }],
     className: {
         type: String,
         required: false,

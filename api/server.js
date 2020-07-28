@@ -10,10 +10,10 @@ connectDB();
 app.use(express.json({extended:false}));
 
 // Setting up routes
-const commitRoutes = require('./src/routes/api/commit');
+const githubRoutes = require('./src/routes/api/github');
 
 // Mounting routes on app
-app.use('/api/commit', commitRoutes);
+app.use('/api/github', githubRoutes);
 
 const PORT = process.env.PORT || 5000;
 

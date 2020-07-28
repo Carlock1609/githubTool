@@ -3,8 +3,33 @@
 const Student = require('../models/Student');
 
 // POST - accepts post from cron to update commits at 12:00am
-exports.post_commits = async (req, res) => {
+exports.create_students = async (req, res) => {
     const { name, repo, commits, className } = req.body;
+
+    try {
+        let student = await Student.findOne({ name });
+        if(student) {
+            return res.status(400).json({ errors: [{ msg: 'Student Already exists' }] });
+        }
+        student = new Student({
+            name,
+            repo,
+            commits,
+            className
+        });
+        
+        await student.save();
+
+        return res.json(student)
+    } catch(err) {
+        console.log(err.message);
+        res.status(500).send('Server Error');
+    }
+};
+
+// POST - accepts post from cron to update commits at 12:00am
+exports.create_commits = async (req, res) => {
+    const { name, commit } = req.body;
 
     try {
         let student = await Student.findOne({ name });
@@ -12,12 +37,7 @@ exports.post_commits = async (req, res) => {
             return res.status(400).json({ errors: [{ msg: 'Student Does not exist' }] });
         }
 
-        student = new Student({
-            name,
-            repo,
-            commits,
-            className
-        });
+        student.commits.unshift(commit)
         
         await student.save();
     } catch(err) {
@@ -27,7 +47,7 @@ exports.post_commits = async (req, res) => {
 };
 
 // GET - all students repos/commits
-exports.get_commit = async (req, res) => {
+exports.get_commits = async (req, res) => {
     try {
         const student = await Student.find()
 
