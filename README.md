@@ -1,5 +1,3 @@
+## Github Web Application Tool
 
-<!-- GITHUB API -->
-
-
-Figure out Cron job to make post to api at 12:00am
+### This is a tool being built for instructors/TA's to make daily duties of keeping track of students progress, as well as checking student commits
