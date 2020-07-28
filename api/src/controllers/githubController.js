@@ -20,7 +20,7 @@ exports.create_students = async (req, res) => {
         
         await student.save();
 
-        return res.json(student)
+        res.json(student)
     } catch(err) {
         console.log(err.message);
         res.status(500).send('Server Error');
@@ -40,6 +40,8 @@ exports.create_commits = async (req, res) => {
         student.commits.unshift(commit)
         
         await student.save();
+
+        res.json(student)
     } catch(err) {
         console.log(err.message);
         res.status(500).send('Server Error');
@@ -49,7 +51,7 @@ exports.create_commits = async (req, res) => {
 // GET - all students repos/commits
 exports.get_commits = async (req, res) => {
     try {
-        const student = await Student.find()
+        const student = await Student.find({})
 
         if(!student) {
             return res.status(404).json({ msg: 'Student not found' });
