@@ -1,8 +1,8 @@
-const axios = require('axios');
+// const axios = require('axios');
 
 const Student = require('../models/Student');
 
-// Register User - POST
+// POST - accepts post from cron to update commits at 12:00am
 exports.post_commits = async (req, res) => {
     const { name, repo, commits, className } = req.body;
 
@@ -20,16 +20,16 @@ exports.post_commits = async (req, res) => {
         });
         
         await student.save();
-
     } catch(err) {
         console.log(err.message);
         res.status(500).send('Server Error');
     }
 };
 
+// GET - all students repos/commits
 exports.get_commit = async (req, res) => {
     try {
-        const student = await Student.findOne({ name: req.name });
+        const student = await Student.find()
 
         if(!student) {
             return res.status(404).json({ msg: 'Student not found' });

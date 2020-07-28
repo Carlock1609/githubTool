@@ -17,7 +17,7 @@ router.get(
 // The auth checks the token to verify it -middleware
 router.post(
 	'/',
-	commitController.post_commit
+	commitController.post_commits
 );
 
 module.exports = router;

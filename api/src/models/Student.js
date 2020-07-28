@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const StudentSchema = new mongoose.Schema({
     name: {
         type: String, 
-        required: true
+        required: false
     },
     repo: {
         type: String, 
-        required: true,
+        required: false,
         unique: true
     },
     commits: {
