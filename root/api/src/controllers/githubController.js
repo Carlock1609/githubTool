@@ -4,7 +4,7 @@ const Student = require('../models/Student');
 
 // POST - accepts post from cron to update commits at 12:00am
 exports.create_students = async (req, res) => {
-    const { name, repo, commits, className } = req.body;
+    const { name, username, repo, commits, className } = req.body;
 
     try {
         let student = await Student.findOne({ name });
@@ -13,6 +13,7 @@ exports.create_students = async (req, res) => {
         }
         student = new Student({
             name,
+            username,
             repo,
             commits,
             className

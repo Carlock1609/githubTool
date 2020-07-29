@@ -2,9 +2,13 @@
 const express = require('express');
 const app = express();
 const connectDB = require('./config/db');
+const cors = require('cors');
 
 // connecting mongoose
 connectDB();
+
+// cors - MAKE SURE THIS IS SAFE
+app.use(cors());
 
 // middleware
 app.use(express.json({extended:false}));
