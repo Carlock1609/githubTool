@@ -27,7 +27,7 @@ import Column from './Column';
 
 
 const Table = () => {
-    const [students, setStudents] = useState(null);
+    const [students, setStudents] = useState([]);
 
     useEffect(() => {
         const getStudents = async () => {
@@ -40,17 +40,11 @@ const Table = () => {
                         'Access-Control-Request-Headers': 'Content-Type'
                     }
                 });
+
                 const students = [];
                 // loops over student object and makes a request for each one using: username, repo-name
                 for(let i = 0; i < data.length; i++) {
-                    // figure out why params object wasn't working.
-                    const student = await axios.get(`https://api.github.com/repos/${data[i].username}/${data[i].repo}`);
-                    // this data needs to be pushed to DB and give a green square if dates match.
-                    // console.log(`${data.owner.login} committed to ${data.name} at ${data.pushed_at}`);
-                    // console.log(student)
-                    // console.log(data[i])
-                    // console.log(student.data.updated_at)
-                    students.unshift({data: data[i], commits: [student.data.updated_at]});
+                    students.unshift({data: data[i]})
                 }
                 setStudents(students);
             } catch(err) {
@@ -69,7 +63,7 @@ const Table = () => {
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Username</th>
-                    <th scope="col">ClassName</th>
+                    <th scope="col">Class Name</th>
                     <th scope="col">Repo</th>
                     <th scope="col">Committed</th>
                 </tr>

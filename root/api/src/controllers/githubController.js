@@ -31,14 +31,15 @@ exports.create_students = async (req, res) => {
 // POST - accepts post from cron to update commits at 12:00am
 exports.create_commits = async (req, res) => {
     const { name, commit } = req.body;
-
+    
     try {
+        console.log(req.body)
         let student = await Student.findOne({ name });
         if(!student) {
             return res.status(400).json({ errors: [{ msg: 'Student Does not exist' }] });
         }
 
-        student.commits.unshift(commit)
+        student.commits.unshift(commit);
         
         await student.save();
 

@@ -22,7 +22,7 @@ students = [{
 if os.path.isdir('./student_repos'):
     os.chdir('./student_repos')
     for student in students:
-        os.system('git pull --allow-unrelated-histories')
+        os.system('git pull origin master')
 else:
     os.mkdir('./student_repos')
     os.chdir('./student_repos')

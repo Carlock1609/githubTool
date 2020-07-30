@@ -3,12 +3,6 @@ import React, { Fragment } from 'react';
 const Column = ({ students }) => {
     console.log(students)
     // BUG trying to figure out how to wait to map until students loaded
-    if(students === null) {
-        setTimeout(() => {
-            console.log('loading...')
-        }, 5000)
-    }
-
     const renderedStudents = students.map(student => {
         console.log(student)
         return (
@@ -16,9 +10,9 @@ const Column = ({ students }) => {
                 <th scope="row">{students.indexOf(student) + 1}</th>
                 <td>{student.data.name}</td>
                 <td>{student.data.username}</td>
-                <td>{student.data.repo}</td>
                 <td>{student.data.className}</td>
-                <td>{student.commits.commits}</td>
+                <td>{student.data.repo}</td>
+                <td>{student.data.commits[0]}</td>
             </tr>     
         );
     });

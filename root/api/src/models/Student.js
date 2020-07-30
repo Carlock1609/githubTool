@@ -18,6 +18,8 @@ const StudentSchema = new mongoose.Schema({
     commits: [{
         type: String, 
         required: false,
+        // Do I want this to be unique so if it alread yhas one it wont push it again?
+        // unique: true
     }],
     className: {
         type: String,

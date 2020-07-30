@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const connectDB = require('./config/db');
 const cors = require('cors');
+const cronCommits = require('./src/utils/cronCommits');
 
 // connecting mongoose
 connectDB();
@@ -18,6 +19,9 @@ const githubRoutes = require('./src/routes/api/github');
 
 // Mounting routes on app
 app.use('/api/github', githubRoutes);
+
+// CRON job
+cronCommits();
 
 const PORT = process.env.PORT || 5000;
 
