@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 
+import Spinner from '../Loading/Spinner';
 import Column from './Column';
 
 // const students = [
@@ -57,21 +58,44 @@ const Table = () => {
 
 
     return (
-        <table className="table">
-            <thead className="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Class Name</th>
-                    <th scope="col">Repo</th>
-                    <th scope="col">Committed</th>
-                </tr>
-            </thead>
-            <tbody>
-                <Column students={students} />    
-            </tbody>
-        </table>
+        (
+            students.length === 0 ?
+            // Displaying Spinner below the table instead of just loading the spinner initially
+            <span>
+                <table className="table">
+                    <thead className="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Class Name</th>
+                            <th scope="col">Repo</th>
+                            <th scope="col">Committed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <Column students={students} />    
+                    </tbody>
+                </table>
+                <Spinner />
+            </span>
+            :  
+            <table className="table">
+                <thead className="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Class Name</th>
+                        <th scope="col">Repo</th>
+                        <th scope="col">Committed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <Column students={students} />    
+                </tbody>
+            </table>
+        )
     );
 };
 

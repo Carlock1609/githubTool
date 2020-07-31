@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
+// import Spinner from './Spinner';
 
 const Column = ({ students }) => {
     console.log(students)
+
     // BUG trying to figure out how to wait to map until students loaded
     const renderedStudents = students.map(student => {
         console.log(student)
