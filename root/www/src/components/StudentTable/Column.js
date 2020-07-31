@@ -4,6 +4,22 @@ import React, { Fragment } from 'react';
 const Column = ({ students }) => {
     console.log(students)
 
+    // This sorts the Students by className - See if you can place an HR where there is a split in classes to organise
+    function compare(a, b) {
+        // Use toUpperCase() to ignore character casing
+        const classA = a.data.className.toUpperCase();
+        const classB = b.data.className.toUpperCase();
+        let comparison = 0;
+        if (classA > classB) {
+          comparison = 1;
+        } else if (classA < classB) {
+          comparison = -1;
+        }
+        return comparison;
+    }
+    
+    students.sort(compare);
+
     // BUG trying to figure out how to wait to map until students loaded
     const renderedStudents = students.map(student => {
         console.log(student)
