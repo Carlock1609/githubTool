@@ -10,9 +10,11 @@
 ## IDEA'S
 ### - Should I keep it simple and just use postman to make POST requests for adding students? I can leave instructions on README for use.
 
+## CURRENTLY WORKING TODO
+### - An admin auth needs to be added for easier adding of students. - One shared login the TA/Instructors use.
+
 ## TODO's
 ### - For sorting the students by className, there needs to be a check that sees if there is a change in classname, and create an hr
-### - An admin auth needs to be added for easier adding of students. - One shared login the TA/Instructors use.
 ### - Figure out regex/datetime, that checks to see if commit was made on that same day, if it is, turn it green, if its old, turn it red.
 ### - Add a counter to the schema that keeps track of how many red or green dates they have. 
 

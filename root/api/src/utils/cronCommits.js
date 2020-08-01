@@ -46,4 +46,4 @@ const cronCommits = () => {
 
 };
 
-module.exports = cronCommits
+module.exports = cronCommits;
