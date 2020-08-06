@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import moment from 'moment';
 // import Spinner from './Spinner';
 
 const Column = ({ students }) => {
@@ -20,9 +21,11 @@ const Column = ({ students }) => {
     
     students.sort(compare);
 
+    const currentDate = moment().format('MMMM Do YYYY');
+
     // BUG trying to figure out how to wait to map until students loaded
     const renderedStudents = students.map(student => {
-        console.log(student)
+        console.log(student);
         return (
             <tr key={student.data.name}>
                 <th scope="row">{students.indexOf(student) + 1}</th>
@@ -30,8 +33,8 @@ const Column = ({ students }) => {
                 <td>{student.data.username}</td>
                 <td>{student.data.className}</td>
                 <td>{student.data.repo}</td>
-                <td>{student.data.commits[0]}</td>
-            </tr>     
+                <td className={(currentDate !== student.data.commits[0] ? "no_commit" : "yes_commit" )}>{student.data.commits[0]}</td>
+            </tr>
         );
     });
 

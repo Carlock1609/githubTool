@@ -9,20 +9,22 @@
 
 ## IDEA'S
 ### - Should I keep it simple and just use postman to make POST requests for adding students? I can leave instructions on README for use.
+### - For simplicity and to push a project, I am not adding auth, and I'm not adding functionality to let anyone add to the api.
 
 ## CURRENTLY WORKING TODO
-### - An admin auth needs to be added for easier adding of students. - One shared login the TA/Instructors use.
+### - Instead of adding another attribute to the schema for 'counter'. I am makinga Detail component that displays the array of commits, and use .length function to get the counter
 
 ## TODO's
 ### - For sorting the students by className, there needs to be a check that sees if there is a change in classname, and create an hr
-### - Figure out regex/datetime, that checks to see if commit was made on that same day, if it is, turn it green, if its old, turn it red.
-### - Add a counter to the schema that keeps track of how many red or green dates they have. 
+### - Add a counter to the schema that keeps track of how many red or green dates they have.
 
 ## FINISHED
 ### - Cron job done, set to run at 12:00am everyday - fix up code, update date www to not make that call anymore.
 ### - 07/30 FIGURE OUT STATE ISSUE - Trying to map prop being passed from parent, component is mapping before data is loaded.
 ### - Figure out how to split the tables by class name. - Use something like orderBy, it should atleast group them by their given Class name
 ### - Figure out loading while the async is being processed.
+### - Commits are now color coded - If the current date matches the most recent commit, it turns it green. If it doesn't match, then its red.
+### - Figure out regex/datetime, that checks to see if commit was made on that same day, if it is, turn it green, if its old, turn it red.
 
 
 

@@ -1,0 +1,6 @@
+.yes_commit {
+    color: rgb(66, 248, 10);
+}
+.no_commit {
+    color: red;
+}
