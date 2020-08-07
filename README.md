@@ -12,7 +12,7 @@
 ### - For simplicity and to push a project, I am not adding auth, and I'm not adding functionality to let anyone add to the api.
 
 ## CURRENTLY WORKING TODO
-### - Instead of adding another attribute to the schema for 'counter'. I am makinga Detail component that displays the array of commits, and use .length function to get the counter
+### - Instead of adding another attribute to the schema for 'counter'. I am makinga Detail component that displays the array of commits, and use .length function to get the counter. - Figure out onclick for current student
 
 ## TODO's
 ### - For sorting the students by className, there needs to be a check that sees if there is a change in classname, and create an hr

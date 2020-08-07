@@ -29,7 +29,10 @@ import Detail from './Detail';
 
 
 const Table = () => {
+    // Create another state that gets the current student clicked on
     const [students, setStudents] = useState([]);
+    // Figure out if i should return the first element in array or null or empty array
+    const [currentStudent, setCurrentStudent] = useState(null)
 
     useEffect(() => {
         const getStudents = async () => {
@@ -57,6 +60,10 @@ const Table = () => {
         getStudents();
     }, [])
 
+    useEffect(() => {
+        setCurrentStudent(currentStudent)
+    }, [currentStudent])
+
     const studentTable = (
                 students.length === 0 ?
                 <span>
@@ -72,7 +79,7 @@ const Table = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <Column students={students} />    
+                            <Column students={students} setCurrentStudent={setCurrentStudent} />    
                         </tbody>
                     </table>
                     <Spinner />
@@ -90,7 +97,7 @@ const Table = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <Column students={students} />    
+                        <Column students={students} setCurrentStudent={setCurrentStudent} />    
                     </tbody>
                 </table>
             );
@@ -99,6 +106,8 @@ const Table = () => {
         <div>
             {studentTable}
             {/* Were going to put student detail right below table - looking at udemy */}
+            {/* Here we dont want to pass in the students state, we want to pass in the current student clicked on. Make a new state for current student */}
+            <Detail student={currentStudent} />
         </div>
     );
 };

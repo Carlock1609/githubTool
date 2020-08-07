@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import moment from 'moment';
 // import Spinner from './Spinner';
 
-const Column = ({ students }) => {
+const Column = ({ students, setCurrentStudent }) => {
     console.log(students)
 
     // This sorts the Students by className - See if you can place an HR where there is a split in classes to organise
@@ -27,7 +27,7 @@ const Column = ({ students }) => {
     const renderedStudents = students.map(student => {
         console.log(student);
         return (
-            <tr key={student.data.name}>
+            <tr onClick={() => {setCurrentStudent(student)}} key={student.data.name}>
                 <th scope="row">{students.indexOf(student) + 1}</th>
                 <td>{student.data.name}</td>
                 <td>{student.data.username}</td>
