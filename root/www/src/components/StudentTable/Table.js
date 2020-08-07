@@ -75,7 +75,8 @@ const Table = () => {
                                 <th scope="col">Username</th>
                                 <th scope="col">Class Name</th>
                                 <th scope="col">Repo</th>
-                                <th scope="col">Committed</th>
+                                <th scope="col">Current Commit</th>
+                                <th scope="col"># of Commits</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,7 +94,8 @@ const Table = () => {
                             <th scope="col">Username</th>
                             <th scope="col">Class Name</th>
                             <th scope="col">Repo</th>
-                            <th scope="col">Committed</th>
+                            <th scope="col">Current Commit</th>
+                            <th scope="col"># of Commits</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -34,6 +34,7 @@ const Column = ({ students, setCurrentStudent }) => {
                 <td>{student.data.className}</td>
                 <td>{student.data.repo}</td>
                 <td className={(currentDate !== student.data.commits[0] ? "no_commit" : "yes_commit" )}>{student.data.commits[0]}</td>
+                <td>{student.data.commits.length}</td>
             </tr>
         );
     });

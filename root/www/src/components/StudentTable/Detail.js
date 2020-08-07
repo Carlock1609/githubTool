@@ -21,6 +21,7 @@ const Detail = ({ student }) => {
             <span>{student.data.username}</span>
             <span>{student.data.className}</span>
             <span>{student.data.repo}</span>
+            <span>Commits {student.data.commits.length}</span>
             <div>{student.data.commits}</div>
         </div>
         :
