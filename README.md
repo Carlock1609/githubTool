@@ -12,7 +12,7 @@
 ### - For simplicity and to push a project, I am not adding auth, and I'm not adding functionality to let anyone add to the api.
 
 ## CURRENTLY WORKING TODO
-### - Instead of adding another attribute to the schema for 'counter'. I am makinga Detail component that displays the array of commits, and use .length function to get the counter. - Figure out onclick for current student
+### - Creating detail view of student - Kinda like a form that pops up more info, as well as something like github for displaying there commits?
 
 ## TODO's
 ### - For sorting the students by className, there needs to be a check that sees if there is a change in classname, and create an hr
@@ -25,6 +25,7 @@
 ### - Figure out loading while the async is being processed.
 ### - Commits are now color coded - If the current date matches the most recent commit, it turns it green. If it doesn't match, then its red.
 ### - Figure out regex/datetime, that checks to see if commit was made on that same day, if it is, turn it green, if its old, turn it red.
+### - Instead of adding another attribute to the schema for 'counter'. I am makinga Detail component that displays the array of commits, and use .length function to get the counter. - Figure out onclick for current student
 
 
 
