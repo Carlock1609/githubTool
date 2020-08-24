@@ -4,3 +4,31 @@
 .no_commit {
     color: red;
 }
+.Detail {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 3%;
+    border-radius: 4px;
+    /* width: 100%; */
+}
+
+.Detail div {
+    font-size: 1.5rem;
+
+}
+
+.Commits {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.commitIcon {
+    width: 30px;
+    height: 30px;
+    margin: 1px;
+    background-color: green;
+}

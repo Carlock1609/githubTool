@@ -16,7 +16,8 @@
 
 ## TODO's
 ### - For sorting the students by className, there needs to be a check that sees if there is a change in classname, and create an hr
-### - Add a counter to the schema that keeps track of how many red or green dates they have.
+### - Add a counter to the schema that keeps track of how many red or green dates they have. 
+### - The cron job will run and grab the commit for that day and check it against the current date. If it is a new commit for that day, make it green, if it is a commit that does not match that day, make it red. We imght need to change up the API a little to accept a boolean value for that so upon Iteration, if it is green add True and vice versa for False. That way we might better be able to tell the difference when iterating
 
 ## FINISHED
 ### - Cron job done, set to run at 12:00am everyday - fix up code, update date www to not make that call anymore.

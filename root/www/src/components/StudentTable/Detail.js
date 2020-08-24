@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import Commits from './Commits';
 
 const Detail = ({ student }) => {
     // We want to loop over ONE student from the state pased in
@@ -17,21 +18,34 @@ const Detail = ({ student }) => {
     // checking possible cases to watch for, counter should be 1 and student object should exist
     const renderedStudent = (counter > 0 && student !== undefined ? 
         <div key={student.data.name}>
-            <span>{student.data.name}</span>
-            <span>{student.data.username}</span>
-            <span>{student.data.className}</span>
-            <span>{student.data.repo}</span>
-            <span>Commits {student.data.commits.length}</span>
-            <div>{student.data.commits}</div>
+            <div className="row">
+                <div className="col-6">
+                    <div><b>Name: </b>{student.data.name}</div>
+                </div>
+                <div className="col-6">
+                    <div><b>Class: </b>{student.data.className}</div>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 text-center">
+                    <div><b>Most Recent Commit: </b>{student.data.commits[0]}</div>
+                </div>
+                <div className="col-12">
+                    <div>
+                        <Commits commitLength={student.data.commits.length} commitDates={student.data.commits} />
+                    </div>
+                </div>
+            </div>
         </div>
         :
-        'Not clicked'
+        ''
         );
 
     return (
         <Fragment>
-            Detail page
-            <div>
+            <h4 className="text-center mt-5">Detail View</h4>
+            <hr/>
+            <div className="Detail container shadow-lg">
                 {renderedStudent}
             </div>
         </Fragment>
